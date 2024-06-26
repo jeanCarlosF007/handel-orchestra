@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/images/harp.png" type="image/x-icon">
   <title>Handel Orchestra</title>
   <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
@@ -12,7 +13,7 @@
   <header>
     <nav class="header-menu">
       <a href="#" class="logo-header">
-        <h1>Logo</h1>
+        <img src="./assets/images/violin.png" alt="Silhueta de maestro regendo orquestra" style="height: 4rem; width: 4rem">
       </a>
       <ul class="items-header-menu">
         <li><a href="#opening-content">Home</a></li>
@@ -105,10 +106,11 @@
               <h3>L. V. Beethoven</h3>
               <ul>
                 <li><strong>Symphony No. 9 in D minor, Op. 125</strong> - Sinfonia, orquestra, coro e solistas</li>
-                <li><strong>Moonlight Sonata (Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2)</strong> - Sonata, piano</li>
-                <li><strong>Fidelio</strong> - Ópera, orquestra e vozes</li>
+                <li><strong>Moonlight Sonata (Piano Sonata No. 14 in C-sharp minor, Op. 27 No. 2)</strong> - Sonata,
+                  piano</li>
                 <li><strong>Violin Concerto in D major, Op. 61</strong> - Concerto, violino e orquestra</li>
-                <li><strong>Piano Concerto No. 5 in E-flat major, Op. 73 ("Emperor")</strong> - Concerto, piano e orquestra</li>
+                <li><strong>Piano Concerto No. 5 in E-flat major, Op. 73 ("Emperor")</strong> - Concerto, piano e
+                  orquestra</li>
               </ul>
             </div>
           </div>
@@ -129,7 +131,6 @@
                 <li><strong>Symphony No. 40 in G minor, K. 550</strong> - Sinfonia, orquestra</li>
                 <li><strong>The Magic Flute (Die Zauberflöte), K. 620</strong> - Ópera, orquestra e vozes</li>
                 <li><strong>Piano Concerto No. 21 in C major, K. 467</strong> - Concerto, piano e orquestra</li>
-                <li><strong>Eine kleine Nachtmusik, K. 525</strong> - Serenata, orquestra de cordas</li>
               </ul>
             </div>
           </div>
@@ -185,10 +186,10 @@
             <div class="flip-card-back">
               <h3>D. Shostakovich</h3>
               <ul>
-              <li><strong>Quarteto de Cordas No. 8 in C minor, Op. 110</strong> - Quarteto de cordas</li>
-              <li><strong>Concerto para Piano No. 2 in F major, Op. 102</strong> - Concerto, piano e orquestra</li>
-              <li><strong>Sinfonia No. 10 in E minor, Op. 93</strong> - Sinfonia, orquestra</li>
-              <li><strong>Suite para Jazz nº 2</strong> - Suite, orquestra de jazz</li>
+                <li><strong>Quarteto de Cordas No. 8 in C minor, Op. 110</strong> - Quarteto de cordas</li>
+                <li><strong>Concerto para Piano No. 2 in F major, Op. 102</strong> - Concerto, piano e orquestra</li>
+                <li><strong>Sinfonia No. 10 in E minor, Op. 93</strong> - Sinfonia, orquestra</li>
+                <li><strong>Suite para Jazz nº 2</strong> - Suite, orquestra de jazz</li>
               </ul>
             </div>
           </div>
@@ -283,56 +284,15 @@
 
     </section>
 
+    <section id="newsletter-button">
+      <a href="./subscribe.html"><img src="./assets/images/letter.png" alt=""></a>
+    </section>
+
   </main>
 
-  <aside>
-    <section id="subscribe">
-      <h3>Deseja receber nossos próximos concertos em primeira mão, bem como notícias acerca do mundo da música erudita a
-        nível global?</h3>
-      <p>Preenchendo o formulário abaixo você tem direito a isso, bem como pode concorrer, eventualmente, a ingressos a
-        preço promocional.</p>
-      <div class="form-container">
-        <form action="./sucesso-formulario.html" class="final-form">
-          <div class="general-form">
-            <label for="complete-name">Nome Completo:</label>
-            <input type="text" id="complete-name" name="complete-name" placeholder="Nome Sobrenome" required>
-            <br>
-            <label for="phone">Telefone (Opcional):</label>
-            <input type="tel" id="phone" name="phone" placeholder="DDD + Número"><br>
-            <label for="mail">E-mail:</label>
-            <input type="email" id="mail" name="mail" placeholder="seuemail@dominio.com" required><br>
-            <fieldset>
-              <legend>Quais períodos da história da música mais chamam sua atenção?</legend>
-              <input type="checkbox" id="medieval" name="medieval" value="medieval">
-              <label for="medieval">Medieval</label><br>
-              <input type="checkbox" id="renaiscance" name="renaiscance" value="renascimento">
-              <label for="renaiscance">Renascimento</label><br>
-              <input type="checkbox" id="baroque" name="baroque" value="barroco">
-              <label for="baroque">Barroco</label><br>
-              <input type="checkbox" id="classical" name="classical" value="classico">
-              <label for="classical">Clássico</label><br>
-              <input type="checkbox" id="romantic" name="romantic" value="romantico">
-              <label for="romantic">Romântico</label><br>
-              <input type="checkbox" id="modern" name="modern" value="moderno">
-              <label for="modern">Moderno</label><br>
-              <input type="checkbox" id="contemporary" name="contemporary" value="contemporaneo">
-              <label for="contemporary">Contemporâneo</label>
-            </fieldset><br>
-          </div>
-          <div class="others">
-            <label for="others"><em>Algum período, artista ou obra que você gostaria que abordássemos mais profundamente? Deixe-nos à par! <br>
-              Quem sabe não entra em nosso repertório?</em></label><br>
-            <textarea name="others" id="others" cols="52" rows="10"></textarea><br>
-            <button id="submit-button">ENVIAR</button>
-          </div>
-        </form>
-      </div>
-    </section>
-  </aside>
-
   <footer>
-    <p>Faça uma visita!</p>
     <p>Endereço: Av. Madre Benvenutta, 302, Trindade, Florianópolis/SC</p>
+    <p>Entre em contato: (48) 99229-0000</p>
     <p>Encontre-nos nas redes sociais:</p>
     <nav class="final-icons">
       <a href="https://www.instagram.com/"><img src="./assets/images/ig-icon.png" alt=""></a>
@@ -340,6 +300,7 @@
       <a href="https://twitter.com/"><img src="./assets/images/twitter-icon.png" alt=""></a>
     </nav>
   </footer>
+  <script src="./assets/js/app.js"></script>
 </body>
 
 </html>

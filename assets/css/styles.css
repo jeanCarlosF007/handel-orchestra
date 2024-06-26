@@ -1,5 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Italianno&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
 :root {
   --white-color: #FFFFFF;
+  --bg-color: #888765;
+  --almost-black: #220101;
+  --primary-color: #32190c;
+  --secondary-color: #302617;
+  --light-grey-color: #7f6f8a;
+  --dark-grey-color: #443746;
+  --brown-red-color: #a72016;
+  --light-brown-color: #734928;
+  --bege-color: #F2D8C9;
+  --gold-color: #d4af37;
+  --dark-gold-color: #b6811f;
+  --side-shadow: 10px 0 20px rgba(0, 0, 0, 0.5),
+    -10px 0 20px rgba(0, 0, 0, 0.5);
 }
 
 /*Zerar a formatação do documento*/
@@ -17,9 +32,10 @@ html {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Playfair Display", serif;
   font-size: 1.5rem;
   line-height: 1.5;
+  background-color: var(--primary-color);
 }
 
 /*HEADER (Barra de navegação superior)*/
@@ -31,8 +47,7 @@ body {
   width: 80vw;
   display: inline-block;
   padding: 0.6rem;
-  /* color: var(--white-color); */
-  background-color: var();
+  background-color: var(--almost-black);
   text-align: center;
   z-index: 1;
 }
@@ -51,8 +66,8 @@ body {
 
 .items-header-menu a {
   text-decoration: none;
-  /* color: var(--white-color); */
-  font-size: 2.2rem;
+  color: var(--gold-color);
+  font-size: 2rem;
   margin: auto 5rem;
 }
 
@@ -70,24 +85,28 @@ body {
 
 #opening-content {
   margin: 0 auto;
-  padding-top: 5.5rem;
+  padding-top: 4.5rem;
   height: 100vh;
   width: 80vw;
-  background-color: aqua;
+  background: url('../images/orchestra.jpg') center center no-repeat;
+  box-shadow: var(--side-shadow);
 }
 
 #main-title {
   text-align: center;
-  margin-top: 5rem;
-  font-size: 5rem;
-  text-decoration: underline;
+  margin-top: 11rem;
+  font-size: 9rem;
+  color: var(--gold-color);
+  font-family: "Italianno", cursive;
+  font-weight: 400;
 }
 
 .quote {
   text-align: center;
-  margin-top: 14rem;
-  padding: 4rem;
-  font-size: 2.8rem;
+
+  font-size: 2.1rem;
+  color: var(--gold-color);
+  border-radius: 3rem;
 }
 
 /*Sobre (about us)*/
@@ -97,19 +116,24 @@ body {
   height: 100vh;
   width: 80vw;
   padding-top: 5.5rem;
-  background-color: aquamarine;
   text-align: center;
+  background: url('../images/trumpet.png') center center no-repeat;
+  box-shadow: var(--side-shadow);
 }
 
 h2 {
   margin: 5rem auto;
-  font-size: 5rem;
+  font-size: 10rem;
+  color: var(--gold-color);
+  font-family: "Italianno", cursive;
+  font-weight: 400;
 }
 
 #about-us p {
-  margin: 5rem 3rem;
+  margin: 2rem 16rem;
   font-size: 2rem;
   text-align: justify;
+  color: var(--bege-color);
 }
 
 /*Repertório*/
@@ -122,11 +146,20 @@ h2 {
   margin: 0 auto;
 }
 
+#repertoire h3 {
+  color: var(--gold-color);
+}
+
+#repertoire ul li {
+  list-style: none;
+  padding: 1rem;
+}
+
+
 .flip-card {
   background-color: transparent;
   width: 30rem;
   height: 40rem;
-  border: 1px solid #f1f1f1;
   border-radius: 1rem;
   perspective: 100rem;
   margin: 3rem;
@@ -141,6 +174,7 @@ h2 {
   text-align: center;
   transition: transform 0.8s;
   transform-style: preserve-3d;
+  box-shadow: var(--side-shadow);
 }
 
 .flip-card:hover .flip-card-inner {
@@ -159,12 +193,12 @@ h2 {
 }
 
 .flip-card-front {
-  background-color: #bbb;
+  background-color: var(--dark-gold-color);
   color: black;
 }
 
 .flip-card-back {
-  background-color: rgb(80, 31, 38);
+  background-color: var(--almost-black);
   color: white;
   transform: rotateY(180deg);
   overflow-y: auto;
@@ -201,17 +235,15 @@ figcaption {
   width: 80vw;
   text-align: center;
   align-items: center;
-  padding-top: 5.5rem;
+  padding-top: 2.5rem;
   margin: 0 auto;
-  /* background: url('../images/chalkboard.png') center center no-repeat; */
-  /* background-size: cover; */
+  background: url('../images/violin-bg.jpg') center center no-repeat;
+  background-size: cover;
+  box-shadow: var(--side-shadow);
 }
 
 #next-events h2 {
-  font-size: 4rem;
-  font-family: 'Charm', cursive;
   margin-bottom: 4rem;
-  text-decoration: underline;
 }
 
 .events-calendar {
@@ -221,11 +253,12 @@ figcaption {
 
 .events-calendar th {
   font-size: 2.1rem;
+  color: #ffe5c2;
 }
 
 .events-calendar tr td {
+  color: wheat;
   padding: 2rem;
-  font-family: 'IBM Plex Mono', monospace;
 }
 
 /*Auditions*/
@@ -234,45 +267,59 @@ figcaption {
   margin: 0 auto;
   height: 100vh;
   width: 80vw;
-  padding-top: 5.5rem;
+  padding-top: 2.5rem;
   text-align: center;
+  background: url('../images/conductor.jpg') center center no-repeat;
+  background-size: cover;
+  box-shadow: var(--side-shadow);
+}
+
+#auditions ul {
+  border-radius: 0.5rem;
+  color: var(--bege-color);
+  padding-top: 8rem;
 }
 
 #auditions ul li {
   list-style: none;
   font-size: 2rem;
-  padding: 4rem;
-  background-color: aliceblue;
+  padding: 2rem;
 }
 
 /*Formulário de Inscrição para Notícias*/
 
 #subscribe {
   width: 80vw;
-  padding-top: 5.5rem;
-  padding-bottom: 2rem;
+  height: 92vh;
+  padding-top: 7.5rem;
   margin: 0 auto;
   background-size: cover;
 }
 
 #subscribe h3 {
   font-size: 2.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 4rem;
   text-align: center;
+  color: var(--bege-color);
 }
 
 #subscribe p {
   font-size: 1.6rem;
   margin-bottom: 2.5rem;
   text-align: center;
+  color: wheat;
 }
 
-.final-form {
+#subscribe form {
+  color: wheat;
+}
+
+#newsletter-form {
   font-size: 1.6rem;
   display: inline;
 }
 
-.final-form input[type=text],
+#newsletter-form input[type=text],
 input[type=tel],
 input[type=email] {
   margin-bottom: 1.6rem;
@@ -282,8 +329,12 @@ input[type=email] {
   font-size: 1.6rem;
 }
 
-.final-form fieldset {
+#newsletter-form fieldset {
   border: none;
+}
+
+#newsletter-form fieldset input[type=checkbox] {
+  margin: 1rem;
 }
 
 .general-form {
@@ -298,10 +349,11 @@ input[type=email] {
 
 #others {
   margin-top: 1rem;
-  color: black;
-  background: transparent;
-  border: 0.2rem solid black;
+  color: wheat;
+  background: var(--light-brown-color);
   font-size: 1.5rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .form-container {
@@ -310,20 +362,40 @@ input[type=email] {
 }
 
 #submit-button {
-  border-color: black;
-  background: red;
-  color: var(--white-color);
+  background: var(--dark-gold-color);
+  color: var(--bege-color);
   width: 10rem;
   height: 3rem;
   font-size: 1.8rem;
   padding: 0 1.6rem;
   margin-top: 1rem;
   border-radius: 1rem;
+  font-family: "Playfair Display", serif;
 }
 
 #submit-button:hover {
-  background-color: var(--primary-color);
+  background-color: var(--gold-color);
   cursor: pointer;
+}
+
+/*Subscription Button*/
+
+#newsletter-button {
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+}
+
+#newsletter-button img {
+  background-color: var(--gold-color);
+  max-height: 6rem;
+  max-width: 6rem;
+  border-radius: 3rem;
+}
+
+#newsletter-button img:hover {
+  cursor: pointer;
+  padding: 0.1rem;
 }
 
 /*Footer*/
@@ -335,12 +407,24 @@ footer {
   text-align: center;
   align-items: center;
   font-size: 1.6rem;
-  background-color: cadetblue;
+  background-color: var(--almost-black);
+  color: var(--gold-color);
   background-size: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .final-icons a img {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 1rem;
+  margin-top: 1rem;
+}
+
+/*Error Message*/
+
+.error-message {
+  color: var(--brown-red-color);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
 }
