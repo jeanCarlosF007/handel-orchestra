@@ -15,3 +15,21 @@
 - Uma área de sobre/contato com um formulário simples (nome, email e mensagem).
 - Ação de botão de chamada para ação (por exemplo, exibir uma mensagem de agradecimento ou redirecionar para outra página, utilizando JS, claro).
 - Escolha uma paleta de cores harmoniosa e fontes apropriadas.
+
+
+---------------------------------------------------------------------------------------------------------------
+
+NOVAS FEATURES (NO MÍNIMO ESSAS):
+
+- Crie uma branche adicional para o desenvolvimento dos novos recursos do projeto;
+- Reestruture a aplicação para que ela seja estruturada através de Grid e Flexbox;
+- Faça com que as transições sejam assíncronas através de: ajax, fetch e promises;
+- Adicione operações CRUD com o LocalStorage;
+- Responsividade completa.
+
+
+OPCIONAIS DIFERENCIAIS:
+- Uso de libs como Bootstrap, Tailwind,  e afins;
+- Tratativa de erros;
+- Dark mode;
+- Animações (Carousel, por exemplo);
