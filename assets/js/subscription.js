@@ -2,6 +2,8 @@ const goToSubscriptionPage = () => {
   window.location.href = 'subscription.html';
 }
 
+// Validations
+
 const validateMail = (email) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -26,10 +28,39 @@ const validateBirthdate = (date) => {
   return isValidDate(day, month, year);
 };
 
+const validateDocumentNumber = (docNumber) => {
+  docNumber = docNumber.replace(/[^\d]/g, '');
+
+  if (docNumber.length !== 11) {
+    return false;
+  }
+
+  if (/^(\d)\1{10}$/.test(docNumber)) {
+    return false;
+  }
+
+  let sum = 0;
+  for (let i = 0; i < 9; i++) {
+    sum += parseInt(docNumber.charAt(i)) * (10 - i);
+  }
+  let firstCheckDigit = 11 - (sum % 11);
+  firstCheckDigit = firstCheckDigit >= 10 ? 0 : firstCheckDigit;
+
+  sum = 0;
+  for (let i = 0; i < 10; i++) {
+    sum += parseInt(docNumber.charAt(i)) * (11 - i);
+  }
+  let secondCheckDigit = 11 - (sum % 11);
+  secondCheckDigit = secondCheckDigit >= 10 ? 0 : secondCheckDigit;
+
+  return firstCheckDigit === parseInt(docNumber.charAt(9)) && secondCheckDigit === parseInt(docNumber.charAt(10));
+};
+
+// Creation of Error messages
+
 const createErrorMessage = (field) => {
   let errorMessage = document.createElement('div');
   errorMessage.classList.add('error-message');
-  console.log(field.id);
 
   if (field.id === "complete-name") {
     errorMessage.textContent = "O nome deve conter ao menos 6 caracteres!";
@@ -37,10 +68,62 @@ const createErrorMessage = (field) => {
     return;
   }
 
-  errorMessage.textContent = "Você deve fornecer um e-mail válido!";
-  email.parentNode.insertBefore(errorMessage, email.nextSibling);
-  return;
+  if (field.id === "birth-date") {
+    errorMessage.textContent = "Data ou formato inválido! Use dia/mês/ano (com 4 dígitos)";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "document-number") {
+    errorMessage.textContent = "Insira um CPF válido!";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "email") {
+    errorMessage.textContent = "Insira um e-mail válido!";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "postal") {
+    errorMessage.textContent = "Você deve inserir um CEP completo";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "street") {
+    errorMessage.textContent = "Você deve preencher o campo 'rua' com ao menos 6 caracteres";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "neighborhood") {
+    errorMessage.textContent = "O campo não pode estar vazio";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "city") {
+    errorMessage.textContent = "O campo não pode estar vazio";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "state") {
+    errorMessage.textContent = "O campo 'UF' deve conter apenas 2 caracteres";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
+  if (field.id === "tell-us-more") {
+    errorMessage.textContent = "Este campo não pode estar vazio!!!";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
 }
+
+// Getting address from API
 
 const getAddressByPostalcode = (postalCode) => {
   return fetch(`https://viacep.com.br/ws/${postalCode}/json/`).then(response => response.json());
@@ -55,6 +138,8 @@ const fetchAddress = async (postalCode) => {
     return "Erro";
   };
 }
+
+// Fill address fields based on postal code
 
 async function fillAddressFields(postalCode) {
   const street = document.getElementById("street");
@@ -85,6 +170,8 @@ document.getElementById('postal').addEventListener('input', e => {
   }
 });
 
+// Form Submission with the general logics
+
 document.getElementById('subscription-form').addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -106,41 +193,56 @@ document.getElementById('subscription-form').addEventListener('submit', function
   const state = document.getElementById("state");
   const tellUsMore = document.getElementById("tell-us-more");
 
-
-  console.log(fullName.value);
-  console.log(birthDate.value);
-  console.log(documentNumber.value);
-  console.log(email.value);
-  console.log(option.value);
-  console.log(postal.value);
-  console.log(street.value);
-  console.log(houseNumber.value);
-  console.log(neighborhood.value);
-  console.log(city.value);
-  console.log(state.value);
-  console.log(tellUsMore.value);
-
-
   if (fullName.value.length < 6) {
     createErrorMessage(fullName);
     return;
   }
 
-  if (!validateMail(email.value)) {
-    let errorMessage = document.createElement('div');
-    errorMessage.classList.add('error-message');
-    errorMessage.textContent = "Você deve fornecer um e-mail válido!";
-    email.parentNode.insertBefore(errorMessage, email.nextSibling);
+  if (!validateBirthdate(birthDate.value)) {
+    createErrorMessage(birthDate);
     return;
   }
 
-  if (!validateBirthdate(birthDate)) {
-
+  if (!validateDocumentNumber(documentNumber.value)) {
+    createErrorMessage(documentNumber);
+    return;
   }
 
+  if (!validateMail(email.value)) {
+    createErrorMessage(email);
+    return;
+  }
+
+  if (postal.value.length !== 8) {
+    createErrorMessage(postal);
+    return;
+  }
+
+  if (street.value.length < 6) {
+    console.log(street.value.length);
+    createErrorMessage(street);
+    return;
+  }
+
+  if (neighborhood.value.length < 2) {
+    createErrorMessage(neighborhood);
+    return;
+  }
+
+  if (city.value.length < 2) {
+    createErrorMessage(city);
+    return;
+  }
+
+  if (state.value.length < 2 || state.value.length > 4) {
+    createErrorMessage(state);
+    return;
+  }
+
+  if (tellUsMore.value.length === 0) {
+    createErrorMessage(tellUsMore);
+    return;
+  }
+  alert("SUCESSO");
   document.getElementById('subscription-form').reset();
 });
-
-function testLS() {
-
-}
