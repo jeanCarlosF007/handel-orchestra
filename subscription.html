@@ -30,9 +30,9 @@
   <main>
     <section id="subscription-container">
       <h2>Realize sua Inscrição</h2>
-      <form onSubscribe="subscribe()" id="subscription-form">
+      <form onSubscribe="subscribe()" class="subscription-form" id="subscription-form">
         <div class="form-container">
-          <div id="form-side-one">
+          <div class="form-side-one">
             <label for="complete-name">
               Nome completo: <input type="text" placeholder="Seu Nome completo" name="complete-name" id="complete-name"
                 class="bigger-input">
@@ -42,20 +42,21 @@
                 class="smaller-input">
             </label>
             <label for="document-number">
-              CPF: <input type="text" placeholder="CPF" name="document-number" id="document-number" class="smaller-input">
+              CPF: <input type="text" placeholder="CPF" name="document-number" id="document-number"
+                class="smaller-input">
             </label>
             <label for="email">
               E-mail: <input type="text" placeholder="seuemail@dominio.com" name="email" id="email"
                 class="bigger-input">
             </label>
             <select name="subscribe-option" id="subscribe-options" class="bigger-input">
-              <option value="second-trumpet" selected>Segundo Trompete</option>
-              <option value="second-cello">Segundo Violoncelo</option>
-              <option value="third-violin">Terceiro Violino</option>
-              <option value="second-violin">Segundo Violino</option>
+              <option value="Segundo Trompete">Segundo Trompete</option>
+              <option value="Segundo Violoncelo">Segundo Violoncelo</option>
+              <option value="Terceiro Violino">Terceiro Violino</option>
+              <option value="Segundo Violino">Segundo Violino</option>
             </select>
           </div>
-          <div id="form-side-two">
+          <div class="form-side-two">
             <fieldset>
               <legend>Endereço</legend>
               <label for="postal">
@@ -90,7 +91,7 @@
     </section>
     <section id="my-subscriptions">
       <h2>Suas inscrições</h2>
-      <table class="table table-hover">
+      <table class="table table-hover" id="tableSubscriptions">
         <thead>
           <tr>
             <th scope="col">ID</th>
@@ -99,7 +100,7 @@
             <th scope="col">Ação</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody id="table-body">
           <tr>
             <th scope="row">1</th>
             <td>Primeiro trompete</td>
@@ -109,19 +110,84 @@
               <button type="button" class="btn btn-danger table-button">Cancelar</button>
             </td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
         </tbody>
       </table>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title" id="exampleModalLabel">Editar inscrição</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form onSubscribe="saveNewSettings()" class="subscription-form" id="modal-form">
+                <div class="form-container">
+                  <div class="form-side-one">
+                    <label for="id-modal">
+                      ID: <input type="text" name="id-modal" id="id-modal" class="smaller-input" readonly>
+                    </label>
+                    <label for="complete-name-modal">
+                      Nome completo: <input type="text" placeholder="Seu Nome completo" name="complete-name-modal"
+                        id="complete-name-modal" class="bigger-input">
+                    </label>
+                    <label for="birth-date-modal">
+                      Data de Nascimento: <input type="text" placeholder="dd/mm/aaaa" name="birth-date-modal" id="birth-date-modal"
+                        class="smaller-input">
+                    </label>
+                    <label for="document-number-modal">
+                      CPF: <input type="text" placeholder="CPF" name="document-number-modal" id="document-number-modal"
+                        class="smaller-input">
+                    </label>
+                    <label for="email-modal">
+                      E-mail: <input type="text" placeholder="seuemail@dominio.com" name="email-modal" id="email-modal"
+                        class="bigger-input">
+                    </label>
+                    <select name="subscribe-option-modal" id="subscribe-options-modal" class="bigger-input">
+                      <option value="Segundo Trompete">Segundo Trompete</option>
+                      <option value="Segundo Violoncelo">Segundo Violoncelo</option>
+                      <option value="Terceiro Violino">Terceiro Violino</option>
+                      <option value="Segundo Violino">Segundo Violino</option>
+                    </select>
+                  </div>
+                  <div class="form-side-two">
+                    <fieldset>
+                      <legend>Endereço</legend>
+                      <label for="postal-modal">
+                        CEP: <input type="text" placeholder="CEP" name="postal-modal" id="postal-modal" class="smaller-input"
+                          maxlength="8">
+                      </label>
+                      <label for="street-modal">
+                        Rua: <input type="text" placeholder="Nome da Rua" name="street-modal" id="street-modal"
+                          class="bigger-input">
+                      </label>
+                      <label for="house-number-modal">
+                        Número: <input type="text" placeholder="Número" name="house-number-modal" id="house-number-modal"
+                          class="smaller-input">
+                      </label>
+                      <label for="neighborhood-modal">
+                        Bairro: <input type="text" placeholder="Bairro" name="neighborhood-modal" id="neighborhood-modal"
+                          class="bigger-input">
+                      </label>
+                      <label for="city-modal">
+                        Cidade: <input type="text" placeholder="Cidade" name="city-modal" id="city-modal" class="bigger-input">
+                      </label>
+                      <label for="state-modal">
+                        UF: <input type="text" placeholder="Estado" name="state-modal" id="state-modal" class="smaller-input">
+                      </label>
+                    </fieldset>
+                  </div>
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary modal-button" data-bs-dismiss="modal" id="close-modal">Cancelar</button>
+                <button type="button" class="btn btn-primary modal-button" onClick="saveNewSettings()">Salvar</button>
+              </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -155,7 +221,8 @@
   </footer>
   <script src="./assets/js/subscription.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
 </body>
 
 </html>

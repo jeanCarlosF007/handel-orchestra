@@ -251,7 +251,8 @@ figcaption {
   align-items: center;
   margin: 0 auto;
   background: url('../images/violin-bg.jpg') center center;
-  opacity: 0.6 background-size: cover;
+  opacity: 0.6;
+  background-size: cover;
   box-shadow: var(--side-shadow);
 }
 
@@ -341,7 +342,7 @@ figcaption {
   color: wheat;
 }
 
-#subscription-form {
+.subscription-form {
   font-size: 1.6rem;
   display: inline;
 }
@@ -353,18 +354,18 @@ figcaption {
   padding: 1rem 5rem;
 }
 
-#form-side-one,
-#form-side-two {
+.form-side-one,
+.form-side-two {
   display: flex;
   flex-direction: column;
 }
 
-#form-side-two fieldset {
+.form-side-two fieldset {
   display: flex;
   flex-direction: column;
 }
 
-#subscription-form input[type=text],
+.subscription-form input[type=text],
 input[type=email] {
   margin-bottom: 2rem;
   border: none;
@@ -374,11 +375,15 @@ input[type=email] {
 }
 
 .smaller-input {
-  width: 12rem
+  width: 12rem;
+  background: var(--light-brown-color);
+  color: wheat;
 }
 
 .bigger-input {
   width: 25rem;
+  background: var(--light-brown-color);
+  color: wheat;
 }
 
 .tell-us-more-container {
@@ -401,7 +406,7 @@ input[type=email] {
   align-items: center;
 }
 
-#subscribeOptions {
+#subscribe-options {
   margin-bottom: 2rem;
   border: none;
   border-radius: 0.25rem;
@@ -422,6 +427,45 @@ input[type=email] {
 }
 
 #submit-button:hover {
+  background-color: var(--gold-color);
+  cursor: pointer;
+}
+
+/* MODAL */
+
+.modal-content {
+  background-color: var(--primary-color);
+  color: wheat;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 5rem;
+}
+
+.modal-title {
+  font-size: 4rem;
+}
+
+#subscribe-options-modal {
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1.6rem;
+  padding: 0.3rem;
+}
+
+.modal-button {
+  background: var(--dark-gold-color);
+  color: var(--bege-color);
+  width: 15rem;
+  height: 4rem;
+  font-size: 1.8rem;
+  padding: 0 1.6rem;
+  margin: 2rem;
+  border-radius: 1rem;
+  font-family: "Playfair Display", serif;
+}
+
+.modal-button:hover {
   background-color: var(--gold-color);
   cursor: pointer;
 }
@@ -455,6 +499,11 @@ input[type=email] {
 
 .table-button {
   font-size: 1.8rem;
+  margin-right: 1rem;
+}
+
+.action-cell {
+  text-align: center;
 }
 
 /*Footer*/
