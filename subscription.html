@@ -13,10 +13,9 @@
 
 <body>
   <header>
-    <nav class="header-menu-container">
-      <a href="./#opening-content" class="logo-header">
-        <img src="./assets/images/violin.png" alt="Silhueta de maestro regendo orquestra"
-          style="height: 4rem; width: 4rem">
+    <nav class="header-desktop-container">
+      <a href="#" class="logo-header">
+        <img src="./assets/images/violin.png" alt="Ícone com um violino." class="logo-img">
       </a>
       <ul class="items-header-menu">
         <li><a href="./#opening-content">Home</a></li>
@@ -26,6 +25,28 @@
         <li><a href="./#auditions">Junte-se a nós</a></li>
       </ul>
     </nav>
+  
+    <!-- "Hamburger menu" for mobile and tablet -->
+    <nav class="navbar header-tablet-container">
+      <div class="container-fluid">
+        <button class="navbar-toggler hamburger-button" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          Menu
+        </button>
+      </div>
+    </nav>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="tablet-nav">
+        <ul class="items-header-menu">
+          <li><a href="./#opening-content">Home</a></li>
+          <li><a href="./#about-us">Nossa Orquestra</a></li>
+          <li><a href="./#repertoire">Repertório</a></li>
+          <li><a href="./#next-events">Agenda</a></li>
+          <li><a href="./#auditions">Junte-se a nós</a></li>
+        </ul>
+      </div>
+    </div>
   </header>
   <main>
     <section id="subscription-container">
@@ -115,7 +136,7 @@
 
       <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
+        <div class="modal-dialog modal-lg">
           <div class="modal-content">
             <div class="modal-header">
               <h1 class="modal-title" id="exampleModalLabel">Editar inscrição</h1>

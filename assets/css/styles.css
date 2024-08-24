@@ -41,7 +41,7 @@ body {
 
 /*HEADER (Barra de navegação superior)*/
 
-.header-menu-container {
+.header-desktop-container {
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
@@ -51,6 +51,10 @@ body {
   background-color: var(--almost-black);
   text-align: center;
   z-index: 1;
+}
+
+.header-tablet-container {
+  display: none;
 }
 
 .items-header-menu li {
@@ -76,9 +80,9 @@ body {
   padding: 0 2rem;
 }
 
-.logo-header img {
-  height: 8rem;
-  width: 8rem;
+.logo-img {
+  height: 4rem;
+  width: 4rem;
 }
 
 /*Conteúdo principal*/
@@ -95,11 +99,14 @@ body {
 }
 
 #main-title {
-  margin-top: 15rem;
   font-size: 9rem;
   color: var(--gold-color);
   font-family: "Italianno", cursive;
   font-weight: 400;
+}
+
+.opening-text {
+  margin-top: 15rem;
 }
 
 .quote {
@@ -318,12 +325,40 @@ figcaption {
   text-transform: uppercase;
 }
 
+/*Footer*/
+
+footer {
+  width: 85vw;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  align-items: center;
+  font-size: 1.6rem;
+  background-color: var(--almost-black);
+  color: var(--gold-color);
+  background-size: cover;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.final-icons a {
+  color: var(--gold-color);
+  margin-top: 1rem;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+.final-icons a:hover {
+  color: var(--dark-gold-color);
+}
+
 /* Subscription Form */
 
 #subscription-container {
   width: 85vw;
   min-height: 92vh;
-  padding-top: 7.5rem;
+  padding-top: 5rem;
   margin: 0 auto;
   background-size: cover;
 }
@@ -400,7 +435,7 @@ input[type=email] {
   font-size: 1.5rem;
   border-radius: 0.5rem;
   padding: 1rem;
-  width: 50%;
+  min-width: 60vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -506,38 +541,649 @@ input[type=email] {
   text-align: center;
 }
 
-/*Footer*/
-
-footer {
-  width: 85vw;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  align-items: center;
-  font-size: 1.6rem;
-  background-color: var(--almost-black);
-  color: var(--gold-color);
-  background-size: cover;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-
-.final-icons a {
-  color: var(--gold-color);
-  margin-top: 1rem;
-  padding: 1rem;
-  text-decoration: none;
-}
-
-.final-icons a:hover {
-  color: var(--dark-gold-color);
-}
-
 /*Error Message*/
 
 .error-message {
   color: #F00;
   font-size: 1.4rem;
   margin-bottom: 2rem;
+}
+
+/* Responsivity for Other Devices */
+
+@media screen and (min-width: 375px) and (max-width: 767px) {
+
+  body {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .header-desktop-container {
+    display: none;
+  }
+
+  .header-tablet-container {
+    display: flex;
+    padding: 2rem 2rem;
+    background-color: var(--almost-black);
+    text-align: center;
+    z-index: 1;
+    border-bottom: 0.2rem solid var(--gold-color);
+  }
+
+  .hamburger-button {
+    font-size: 2rem;
+    color: var(--gold-color);
+    padding: 1rem;
+    border: 1px solid var(--gold-color);
+    border-radius: 0.8rem;
+  }
+
+  .tablet-nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    background-color: var(--almost-black);
+    border-bottom: 0.2rem solid var(--gold-color);
+  }
+
+  .items-header-menu li {
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0.3rem 0.3rem;
+  }
+
+  .items-header-menu a:hover {
+    opacity: 0.65;
+  }
+
+  .items-header-menu a {
+    text-decoration: none;
+    color: var(--gold-color);
+    font-size: 2rem;
+    margin: auto 5rem;
+    text-transform: uppercase;
+  }
+
+  /*Conteúdo principal*/
+
+  #opening-content {
+    background: url('../images/tablet-orchestra.png') center center no-repeat;
+    background-size: cover;
+    min-width: 100vw;
+  }
+
+  #main-title {
+    margin-top: 0;
+    font-size: 5rem;
+    text-align: center;
+    color: var(--gold-color);
+    font-family: "Italianno", cursive;
+    font-weight: 400;
+  }
+
+  .opening-text {
+    margin-top: 25rem;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    opacity: 0.9;
+    background: var(--primary-color);
+    box-shadow: var(--side-shadow);
+  }
+
+  .opening-text h1 {
+    padding: 0;
+    margin: 0;
+  }
+
+  .quote {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  /*Sobre (about us)*/
+
+  #about-us {
+    margin: 0;
+    padding-top: 6rem;
+    background-size: cover;
+    min-width: 100vw;
+  }
+
+  h2 {
+    margin: 1rem auto;
+    font-size: 7rem;
+  }
+
+  #about-us p {
+    margin: 2rem 1rem;
+    font-size: 1.5rem;
+    padding: 1rem;
+    text-align: justify;
+    color: var(--bege-color);
+    font-style: italic;
+  }
+
+  /*Repertório*/
+
+  #repertoire {
+    min-width: 100vw;
+    margin: 0;
+  }
+
+  .repertoire-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    margin: auto 8rem;
+  }
+
+  /*Próximos Eventos*/
+
+  #next-events {
+    min-width: 100vw;
+    margin: 0;
+    padding-top: 2rem;
+  }
+
+  #next-events h2 {
+    margin-bottom: 3rem;
+    background: var(--primary-color);
+    opacity: 0.9;
+    box-shadow: var(--side-shadow);
+    padding: 0.5rem;
+    border-radius: 0.8rem;
+  }
+
+  .events-calendar {
+    font-size: 1.5rem;
+    background-color: var(--almost-black);
+    border-radius: 1.2rem;
+  }
+
+  .events-calendar th {
+    font-size: 1.8rem;
+    color: #ffe5c2;
+    padding-top: 1.5rem;
+  }
+
+  .events-calendar tr td {
+    padding: 1.4rem;
+  }
+
+  /*Auditions*/
+
+  #auditions {
+    margin: 0;
+    min-width: 100vw;
+    padding-top: 20rem;
+  }
+
+  #carouselExampleAutoplaying h3 {
+    font-size: 1.6rem;
+    margin-top: 7rem;
+  }
+
+  .carousel-item button {
+    margin-top: 7rem;
+    width: 12rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  /*Footer*/
+
+  footer {
+    min-width: 100vw;
+    margin: 0;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .final-icons a {
+    color: var(--gold-color);
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    text-decoration: none;
+  }
+
+  .final-icons a:hover {
+    color: var(--dark-gold-color);
+  }
+
+
+  /* Subscription Form */
+
+  #subscription-container {
+    min-width: 100vw;
+    padding-top: 3rem;
+  }
+
+  #subscription-container h2 {
+    font-size: 6rem;
+    margin-bottom: 3rem;
+  }
+
+  .subscription-form {
+    font-size: 1.4rem;
+    display: inline;
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  .subscription-form input[type=text],
+  input[type=email] {
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1.4rem;
+    padding: 0.3rem;
+  }
+
+  .smaller-input {
+    width: 10rem;
+    background: var(--light-brown-color);
+  }
+
+  .bigger-input {
+    width: 20rem;
+    background: var(--light-brown-color);
+  }
+
+  .tell-us-more-container {
+    padding: 1rem;
+  }
+
+  #tell-us-more {
+    margin-top: 1rem;
+    background: var(--light-brown-color);
+    font-size: 1.4rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #subscribe-options {
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0.25rem;
+    font-size: 1.4rem;
+    padding: 0.2rem;
+  }
+
+  #submit-button {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.4rem;
+  }
+
+  /* MODAL */
+
+  .modal-content {
+    padding: 0.8rem 0;
+  }
+
+  .modal-title {
+    font-size: 2rem;
+  }
+
+  #subscribe-options-modal {
+    margin-bottom: 1.5rem;
+    font-size: 1.4rem;
+  }
+
+  .modal-button {
+    width: 10rem;
+    height: 3rem;
+    font-size: 1.5rem;
+    padding: 0 1.3rem;
+    margin: 1rem;
+  }
+
+  /* Subscriptions made */
+
+  #my-subscriptions {
+    min-width: 100vw;
+    margin: 2rem auto;
+  }
+
+  #my-subscriptions h2 {
+    font-size: 6rem;
+    margin-bottom: 3rem;
+  }
+
+  #my-subscriptions table th,
+  #my-subscriptions table td {
+    font-size: 1.4rem;
+    padding: 0.4rem;
+  }
+
+  #my-subscriptions table th {
+    font-size: 1.6rem;
+  }
+
+  .table-button {
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /*Error Message*/
+
+  .error-message {
+    color: #F00;
+    font-size: 1.2rem;
+    margin-bottom: 1.6rem;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+  body {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  .header-desktop-container {
+    display: none;
+  }
+
+  .header-tablet-container {
+    display: flex;
+    padding: 2rem 2rem;
+    background-color: var(--almost-black);
+    text-align: center;
+    z-index: 1;
+    border-bottom: 0.2rem solid var(--gold-color);
+  }
+
+  .hamburger-button {
+    font-size: 2rem;
+    color: var(--gold-color);
+    padding: 1rem;
+    border: 1px solid var(--gold-color);
+    border-radius: 0.8rem;
+  }
+
+  .tablet-nav {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    min-width: 100vw;
+    background-color: var(--almost-black);
+    border-bottom: 0.2rem solid var(--gold-color);
+  }
+
+  .items-header-menu li {
+    padding: 0.2rem;
+    display: flex;
+    flex-direction: column;
+    margin: 0.3rem 0.3rem;
+  }
+
+  .items-header-menu a:hover {
+    opacity: 0.65;
+  }
+
+  .items-header-menu a {
+    text-decoration: none;
+    color: var(--gold-color);
+    font-size: 2rem;
+    margin: auto 5rem;
+    text-transform: uppercase;
+  }
+
+  /*Conteúdo principal*/
+
+  #opening-content {
+    min-width: 100vw;
+    background: url('../images/tablet-orchestra.png') center center no-repeat;
+    background-size: cover;
+  }
+
+  #main-title {
+    margin-top: 0;
+    font-size: 7rem;
+  }
+
+  .opening-text {
+    margin-top: 26rem;
+    padding: 2rem;
+    border-radius: 0.8rem;
+    opacity: 0.9;
+    background: var(--primary-color);
+    box-shadow: var(--side-shadow);
+  }
+
+  .quote {
+    text-align: center;
+    font-size: 1.8rem;
+  }
+
+  /*Sobre (about us)*/
+
+  #about-us {
+    margin: 0;
+    min-width: 100vw;
+    padding-top: 5rem;
+  }
+
+  h2 {
+    margin: 1rem auto;
+    font-size: 8rem;
+  }
+
+  #about-us p {
+    margin: 4rem 1rem;
+    font-size: 2rem;
+    padding: 0.5rem;
+    text-align: justify;
+    color: var(--bege-color);
+    font-style: italic;
+  }
+
+  /*Repertório*/
+
+  #repertoire {
+    min-width: 100vw;
+  }
+
+  .repertoire-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /*Próximos Eventos*/
+
+  #next-events {
+    min-width: 100vw;
+  }
+
+  #next-events h2 {
+    margin-top: 6rem;
+    margin-bottom: 3rem;
+    background: var(--primary-color);
+    box-shadow: var(--side-shadow);
+    padding: 1rem;
+    border-radius: 0.8rem;
+  }
+
+  .events-calendar {
+    font-size: 1.6rem;
+    background-color: var(--almost-black);
+    border-radius: 1.2rem;
+  }
+
+  .events-calendar th {
+    font-size: 2.1rem;
+    color: #ffe5c2;
+    padding-top: 1.2rem;
+  }
+
+  .events-calendar tr td {
+    color: wheat;
+    padding: 1.5rem;
+  }
+
+  /*Auditions*/
+
+  #auditions {
+    margin: 0;
+    min-width: 100vw;
+    padding-top: 25rem;
+  }
+
+  #carouselExampleAutoplaying h3 {
+    font-size: 2rem;
+    margin-top: 9rem;
+  }
+
+  .carousel-item button {
+    margin-top: 7rem;
+    width: 15rem;
+    height: 4rem;
+    font-size: 1.9rem;
+    text-transform: uppercase;
+  }
+
+  /*Footer*/
+
+  footer {
+    min-width: 100vw;
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.4rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .final-icons a {
+    color: var(--gold-color);
+    margin-top: 0.8rem;
+    padding: 0.8rem;
+    text-decoration: none;
+  }
+
+  .final-icons a:hover {
+    color: var(--dark-gold-color);
+  }
+
+  /* Subscription Form */
+
+  #subscription-container {
+    min-width: 100vw;
+    padding-top: 2.5rem;
+  }
+
+  #subscription-container h2 {
+    font-size: 6rem;
+    margin-bottom: 2rem;
+  }
+
+  .subscription-form {
+    font-size: 1.6rem;
+  }
+
+  .form-container {
+    padding: 1.8rem 0.8rem;
+  }
+
+  .subscription-form input[type=text],
+  input[type=email] {
+    font-size: 1.6rem;
+    padding: 0.4rem;
+  }
+
+  .smaller-input {
+    width: 11rem;
+  }
+
+  .bigger-input {
+    width: 18rem;
+  }
+
+  #tell-us-more {
+    margin-top: 1rem;
+    font-size: 1.6rem;
+  }
+
+  #subscribe-options {
+    font-size: 1.6rem;
+    padding: 0.3rem;
+  }
+
+  #submit-button {
+    width: 12rem;
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+
+  /* MODAL */
+
+  .modal-content {
+    padding: 0.8rem 0;
+  }
+
+  .modal-title {
+    font-size: 2.2rem;
+  }
+
+  #subscribe-options-modal {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .modal-button {
+    width: 12rem;
+    height: 3.5rem;
+    font-size: 1.6rem;
+  }
+
+  /* Subscriptions made */
+
+  #my-subscriptions {
+    min-width: 100vw;
+    padding: 1rem;
+  }
+
+  #my-subscriptions h2 {
+    font-size: 6rem;
+    margin-bottom: 2.5rem;
+  }
+
+  #my-subscriptions table th,
+  #my-subscriptions table td {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  #my-subscriptions table th {
+    font-size: 1.8rem;
+    padding: 0.5rem;
+  }
+
+  .table-button {
+    font-size: 1.4rem;
+  }
+
+  /*Error Message*/
+
+  .error-message {
+    color: #F00;
+    font-size: 1.3rem;
+    margin-bottom: 1.7rem;
+  }
 }

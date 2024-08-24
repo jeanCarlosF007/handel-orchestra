@@ -108,6 +108,12 @@ const createErrorMessage = (field) => {
     return;
   }
 
+  if (field.id === "subscribe-options" || field.id === "subscribe-options-modal") {
+    errorMessage.textContent = "As inscrições para esta vaga estão encerradas";
+    field.parentNode.insertBefore(errorMessage, field.nextSibling);
+    return;
+  }
+
   if (field.id === "postal" || field.id === "postal-modal") {
     errorMessage.textContent = "Você deve inserir um CEP completo";
     field.parentNode.insertBefore(errorMessage, field.nextSibling);
@@ -241,7 +247,7 @@ const deleteSubscription = (id) => {
     localStorage.setItem("subscriptions", JSON.stringify(data));
     generateTable(data);
     alert("Inscrição cancelada com sucesso!");
-  }  
+  }
 }
 
 
@@ -468,6 +474,27 @@ document.getElementById('subscription-form').addEventListener('submit', function
     return;
   }
 
+  let isSubscriptionAvailable;
+  switch (option.value) {
+    case "Segundo Trompete":
+      isSubscriptionAvailable = checkSubscriptionDate(subscribeDate, endSubSecondTrumpet);
+      break;
+    case "Segundo Violoncelo":
+      isSubscriptionAvailable = checkSubscriptionDate(subscribeDate, endSubSecondCello);
+      break;
+    case "Terceiro Violino":
+      isSubscriptionAvailable = checkSubscriptionDate(subscribeDate, endSubThirdViolin);
+      break;
+    case "Segundo Violino":
+      isSubscriptionAvailable = checkSubscriptionDate(subscribeDate, endSubSecondViolin);
+      break;
+  }
+
+  if (!isSubscriptionAvailable) {
+    createErrorMessage(option);
+    return;
+  }
+
   if (postal.value.length !== 8) {
     createErrorMessage(postal);
     return;
@@ -520,5 +547,6 @@ document.getElementById('subscription-form').addEventListener('submit', function
 
   generateTable(subscriptions);
   alert("INSCRIÇÃO REALIZADA COM SUCESSO");
+  deletePreviousErrorMessages();
   document.getElementById('subscription-form').reset();
 });
